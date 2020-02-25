@@ -97,11 +97,12 @@ public class FileGid {
         }
         File[] files = file.listFiles();
         if (files != null) {
+            if (files.length == 0) {
+                System.out.println("Directory: " + file.getName() + " is empty");
+            }
             for (File innerFile : files) {
                 System.out.println(innerFile);
             }
-        } else {
-            System.out.println("Directory is empty");
         }
     }
 
