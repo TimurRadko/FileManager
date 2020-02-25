@@ -32,6 +32,7 @@ public class FileGid {
 
     private void implInput(String input) {
         checkExit(input);
+        checkBackToChoiceRoot(input);
         input = input.trim();
         if (input.startsWith("cd ")) {
             input = input.substring(3);
@@ -56,6 +57,7 @@ public class FileGid {
 
     private void deleteFile(String input) {
         checkExit(input);
+        checkBackToChoiceRoot(input);
         input = input.trim();
         if (input.startsWith("del ")) {
             input = input.substring(4);
@@ -106,6 +108,13 @@ public class FileGid {
         String s = "exit";
         if (s.equalsIgnoreCase(input)) {
             System.exit(0);
+        }
+    }
+
+    private void checkBackToChoiceRoot(String input) {
+        String s = "back";
+        if (s.equalsIgnoreCase(input)) {
+            pave();
         }
     }
 
