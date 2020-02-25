@@ -79,10 +79,11 @@ public class FileGid {
     private void choiceRoot() {
         File[] roots = File.listRoots();
         System.out.println(Arrays.toString(roots));
-        String input = scanner.nextLine();
+        String input = scanner.nextLine().toUpperCase();
+        checkExit(input);
         for (File file : roots) {
             String path = file.getPath();
-            if (path.startsWith(input) || path.equalsIgnoreCase(input)) {
+            if (path.startsWith(input)) {
                 currentPath.append(path);
                 return;
             }
